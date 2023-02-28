@@ -9,6 +9,7 @@ namespace AddressBookSystem;
 public class AddressBookMain
 {
     public static List<Contact> AddressBook = new List<Contact>();
+    public static Dictionary<string, List<Contact>> DictionaryBook = new Dictionary<string, List<Contact>>();
 
     //UC2
     public void AddContact()
@@ -162,6 +163,39 @@ public class AddressBookMain
         {
             AddContact();
             numberPerson--;
+        }
+    }
+
+    //UC6
+    public void CreateDictionary()
+    {
+        Console.WriteLine("Enter Bookname of address book");
+        string Bookname = Console.ReadLine();//key 
+        Console.WriteLine("Please enter number of person add in Contact");
+        int numberPerson = Convert.ToInt32(Console.ReadLine());
+        while (numberPerson > 0)
+        {
+            AddContact();
+            numberPerson--;
+        }
+        DictionaryBook.Add(Bookname, AddressBook.ToList());
+    }
+    public void DisplayDicttionaryList()
+    {
+        foreach (var pair in DictionaryBook.Keys)
+        {
+            Console.WriteLine("Address Book Name " + pair);
+            foreach (Contact data in DictionaryBook[pair])
+            {
+                Console.WriteLine("First Name :   " + data.FName);
+                Console.WriteLine("Last Name :    " + data.LName);
+                Console.WriteLine("Address :      " + data.Address);
+                Console.WriteLine("City    :      " + data.City);
+                Console.WriteLine("State   :      " + data.State);
+                Console.WriteLine("Zip     :      " + data.Zip);
+                Console.WriteLine("Phone Number  : " + data.PhoneNumber);
+                Console.WriteLine("Email  :       " + data.Email);
+            }
         }
     }
 }

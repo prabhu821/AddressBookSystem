@@ -139,21 +139,29 @@ public class AddressBookMain
 
             foreach (var item in AddressBook)
             {
-                if (deleteName.ToLower() == item.FName.ToLower())
+                if (item.FName.ToLower() == deleteName.ToLower())
                 {
                     AddressBook.Remove(item);
-                    Console.WriteLine(deleteName + "'s Contact is successfully deleted.");
-                    break;
-                }
-                else
-                {
-                    Console.WriteLine(deleteName + " does not exist in Address Book.");
+                    Console.WriteLine(deleteName + "'s contact is successfully deleted.");
+                    return;
                 }
             }
         }
         else
         {
             Console.WriteLine("Address Book is empty!");
+        }
+    }
+
+    //UC5
+    public void AddMultiplePerson()
+    {
+        Console.WriteLine("Please enter number of person to add in Contact");
+        int numberPerson = Convert.ToInt32(Console.ReadLine());
+        while (numberPerson > 0)
+        {
+            AddContact();
+            numberPerson--;
         }
     }
 }

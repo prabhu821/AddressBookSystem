@@ -10,7 +10,8 @@
             bool flag = true;
             while (flag)
             {
-                Console.WriteLine("Enter your choice \n1.Add Contacts \n2.View Contacts \n3.Edit Contact \n4.Delete Contact \n5.Exit");
+                Console.WriteLine("Enter your choice \n1.Add Contacts \n2.View Contacts \n3.Edit Contact \n4.Delete Contact " +
+                    "\n5.Add Multiple Person \n6.Exit");
                 Console.WriteLine("\nEnter option to execute");
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
@@ -28,6 +29,9 @@
                         break;
                     case 4:
                         addressBookMain.DeleteContact();
+                        break;
+                    case 5:
+                        addressBookMain.AddMultiplePerson();
                         break;
                     default:
                         flag = false;

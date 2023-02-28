@@ -10,7 +10,7 @@
             bool flag = true;
             while (flag)
             {
-                Console.WriteLine("Enter your choice \n1.Add Contacts \n2.View Contacts \n3.Exit");
+                Console.WriteLine("Enter your choice \n1.Add Contacts \n2.View Contacts \n3.Edit Contact \n4.Exit");
                 Console.WriteLine("\nEnter option to execute");
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
@@ -22,6 +22,9 @@
                     case 2:
                         addressBookMain.ViewDetail();
                         Console.WriteLine("\n");
+                        break;
+                    case 3:
+                        addressBookMain.EditContact();
                         break;
                     default:
                         flag = false;

@@ -10,6 +10,7 @@ public class AddressBookMain
 {
     public static List<Contact> AddressBook = new List<Contact>();
 
+    //UC2
     public void AddContact()
     {
         Contact contacts = new Contact();
@@ -53,6 +54,71 @@ public class AddressBookMain
             Console.WriteLine("Zip     :      " + item.Zip);
             Console.WriteLine("Phone Number  : " + item.PhoneNumber);
             Console.WriteLine("Email  :       " + item.Email);
+        }
+    }
+
+    //UC3
+    public void EditContact()
+    {
+        if (AddressBook.Count > 0)
+        {
+            Console.Write("Enter Name of the contact you want to edit: ");
+            string editDetails = Console.ReadLine();
+
+            foreach (var item in AddressBook)
+            {
+                if (editDetails.ToLower() == item.FName.ToLower())
+                {
+                    Console.WriteLine("\nChoice what you want to edit \n1.First name \n2.Last name \n3.Address" +
+                        "\n4.City \n5.State \n6.Zip Code \n7.Phone Number \n8.Email");
+
+                    int editChoice = int.Parse(Console.ReadLine());
+
+                    switch (editChoice)
+                    {
+                        case 1:
+                            Console.Write("Enter new First Name: ");
+                            item.FName = Console.ReadLine();
+                            break;
+
+                        case 2:
+                            Console.Write("Enter new Last Name: ");
+                            item.LName = Console.ReadLine();
+                            break;
+
+                        case 3:
+                            Console.Write("Enter Your new Address: ");
+                            item.Address = Console.ReadLine();
+                            break;
+
+                        case 4:
+                            Console.Write("Enter Your new City Name: ");
+                            item.City = Console.ReadLine();
+                            break;
+
+                        case 5:
+                            Console.Write("Enter new State Name: ");
+                            item.State = Console.ReadLine();
+                            break;
+                        case 6:
+                            Console.Write("Enter new Zip Code: ");
+                            item.Zip = Console.ReadLine();
+                            break;
+                        case 7:
+                            Console.Write("Enter new Phone Number: ");
+                            item.PhoneNumber = Console.ReadLine();
+                            break;
+                        case 8:
+                            Console.Write("Enter new Email Address: ");
+                            item.Email = Console.ReadLine();
+                            break;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("{0} does not exists in Address Book.", editDetails);
+                }
+            }
         }
     }
 }

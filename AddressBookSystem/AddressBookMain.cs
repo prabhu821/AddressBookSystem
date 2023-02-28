@@ -44,16 +44,23 @@ public class AddressBookMain
 
     public void ViewDetail()
     {
-        foreach (var item in AddressBook)
+        if (AddressBook.Count > 0)
         {
-            Console.WriteLine("First Name :   " + item.FName);
-            Console.WriteLine("Last Name :    " + item.LName);
-            Console.WriteLine("Address :      " + item.Address);
-            Console.WriteLine("City    :      " + item.City);
-            Console.WriteLine("State   :      " + item.State);
-            Console.WriteLine("Zip     :      " + item.Zip);
-            Console.WriteLine("Phone Number  : " + item.PhoneNumber);
-            Console.WriteLine("Email  :       " + item.Email);
+            foreach (var item in AddressBook)
+            {
+                Console.WriteLine("First Name :   " + item.FName);
+                Console.WriteLine("Last Name :    " + item.LName);
+                Console.WriteLine("Address :      " + item.Address);
+                Console.WriteLine("City    :      " + item.City);
+                Console.WriteLine("State   :      " + item.State);
+                Console.WriteLine("Zip     :      " + item.Zip);
+                Console.WriteLine("Phone Number  : " + item.PhoneNumber);
+                Console.WriteLine("Email  :       " + item.Email);
+            }
+        }
+        else
+        {
+            Console.WriteLine("Address book is empty! ");
         }
     }
 
@@ -119,6 +126,34 @@ public class AddressBookMain
                     Console.WriteLine("{0} does not exists in Address Book.", editDetails);
                 }
             }
+        }
+    }
+
+    //UC4
+    public void DeleteContact()
+    {
+        if (AddressBook.Count > 0)
+        {
+            Console.Write("Enter name of contact you want to delete: ");
+            string deleteName = Console.ReadLine();
+
+            foreach (var item in AddressBook)
+            {
+                if (deleteName.ToLower() == item.FName.ToLower())
+                {
+                    AddressBook.Remove(item);
+                    Console.WriteLine(deleteName + "'s Contact is successfully deleted.");
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine(deleteName + " does not exist in Address Book.");
+                }
+            }
+        }
+        else
+        {
+            Console.WriteLine("Address Book is empty!");
         }
     }
 }

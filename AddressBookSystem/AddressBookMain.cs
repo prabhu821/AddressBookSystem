@@ -198,4 +198,27 @@ public class AddressBookMain
             }
         }
     }
+
+    //UC7
+    public void DuplicateContact()
+    {
+        if (AddressBook.Count > 0)
+        {
+            Console.WriteLine("Enter the name you want to check:");
+            string personName = Console.ReadLine();
+            bool check = AddressBook.Any(x => x.FName == personName);
+            if (check)
+            {
+                Console.WriteLine("Contact present in address book");
+            }
+            else
+            {
+                Console.WriteLine("Contact is not present");
+            }
+        }
+        else
+        {
+            Console.WriteLine("Address book is empty! ");
+        }
+    }
 }

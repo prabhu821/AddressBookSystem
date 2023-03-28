@@ -14,7 +14,7 @@ public class Program
         {
             Console.WriteLine("\nEnter your choice \n1.Add Contacts \n2.View Contacts \n3.Edit Contact \n4.Delete Contact " +
                 "\n5.Add Multiple Person \n6.Add Multiple AddressBook using Dictionary \n7.Display List of Dictionary \n8.Check for Duplicate Contacts " +
-                "\n9.Exit");
+                "\n9.Search Person by City or State \n10.Exit");
             Console.WriteLine("Enter option to execute");
             int option = Convert.ToInt32(Console.ReadLine());
             switch (option)
@@ -44,6 +44,9 @@ public class Program
                     break;
                 case 8:
                     addressBookMain.DuplicateContact();
+                    break;
+                case 9:
+                    addressBookMain.SearchPersonByCityOrState();
                     break;
                 default:
                     flag = false;

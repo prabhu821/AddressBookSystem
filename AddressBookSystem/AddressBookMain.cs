@@ -209,7 +209,7 @@ public class AddressBookMain
             bool check = AddressBook.Any(x => x.FName == personName);
             if (check)
             {
-                Console.WriteLine("Contact present in address book");
+                Console.WriteLine("Contact with name {0} already present", personName);
             }
             else
             {
@@ -219,6 +219,41 @@ public class AddressBookMain
         else
         {
             Console.WriteLine("Address book is empty! ");
+        }
+    }
+
+    //UC8
+    public void SearchPersonByCityOrState()
+    {
+        if (AddressBook.Count > 0)
+        {
+            Console.WriteLine("Select option to search by \n1.Contact In City\n2.Contact In State");
+            int choice = Convert.ToInt32(Console.ReadLine());
+            switch (choice)
+            {
+                case 1:
+                    Console.Write("Enter the City Name : ");
+                    string cityName = Console.ReadLine();
+                    foreach (var data in AddressBook.FindAll(x => x.City == cityName))
+                    {
+                        Console.WriteLine("The Contact Details of " + data.City + " are:\n" + data.FName + "\n" + data.LName + "\n" +
+                            data.Address + "\n" + data.Zip + "\n" + data.PhoneNumber + "\n" + data.Email);
+                    }
+                    break;
+                case 2:
+                    Console.Write("Enter the State Name : ");
+                    string stateName = Console.ReadLine();
+                    foreach (var data in AddressBook.FindAll(x => x.State == stateName))
+                    {
+                        Console.WriteLine("The Contact Details of " + data.State + " are:\n" + data.FName + "\n" + data.LName + "\n" +
+                            data.Address + "\n" + data.Zip + "\n" + data.PhoneNumber + "\n" + data.Email);
+                    }
+                    break;
+            }
+        }
+        else
+        {
+            Console.WriteLine("Address Book is empty! ");
         }
     }
 }

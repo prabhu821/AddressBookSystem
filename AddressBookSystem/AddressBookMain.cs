@@ -276,4 +276,41 @@ public class AddressBookMain
             Console.WriteLine("Address Book is empty.");
         }
     }
+
+    //UC10
+    public void CountPerson()
+    {
+        if (AddressBook.Count > 0)
+        {
+            Console.WriteLine("Select option to count by \n1.Contact In City\n2.Contact In State");
+            int choice = Convert.ToInt32(Console.ReadLine());
+            switch (choice)
+            {
+                case 1:
+                    int count = 0;
+                    Console.Write("Enter the City Name : ");
+                    string cityName = Console.ReadLine();
+                    foreach (var items in AddressBook.FindAll(x => x.City == cityName))
+                    {
+                        count++;
+                    }
+                    Console.WriteLine("No of contacts : {0}", count);
+                    break;
+                case 2:
+                    int value = 0;
+                    Console.Write("Enter the State Name : ");
+                    string stateName = Console.ReadLine();
+                    foreach (var items in AddressBook.FindAll(x => x.State == stateName))
+                    {
+                        value++;
+                    }
+                    Console.WriteLine("No of contacts : {0}", value);
+                    break;
+            }
+        }
+        else
+        {
+            Console.WriteLine("Address Book is empty.");
+        }
+    }
 }

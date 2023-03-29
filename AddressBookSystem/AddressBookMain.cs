@@ -234,19 +234,19 @@ public class AddressBookMain
                 case 1:
                     Console.Write("Enter the City Name : ");
                     string cityName = Console.ReadLine();
+                    Console.WriteLine("The Contact Details of {0} are:", cityName);
                     foreach (var data in AddressBook.FindAll(x => x.City == cityName))
                     {
-                        Console.WriteLine("The Contact Details of " + data.City + " are:\n" + data.FName + "\n" + data.LName + "\n" +
-                            data.Address + "\n" + data.Zip + "\n" + data.PhoneNumber + "\n" + data.Email);
+                        Console.WriteLine(data.FName + "\n" + data.LName + "\n" + data.Address + "\n" + data.Zip + "\n" + data.PhoneNumber + "\n" + data.Email);
                     }
                     break;
                 case 2:
                     Console.Write("Enter the State Name : ");
                     string stateName = Console.ReadLine();
+                    Console.WriteLine("The Contact Details of {0} are:",stateName);
                     foreach (var data in AddressBook.FindAll(x => x.State == stateName))
                     {
-                        Console.WriteLine("The Contact Details of " + data.State + " are:\n" + data.FName + "\n" + data.LName + "\n" +
-                            data.Address + "\n" + data.Zip + "\n" + data.PhoneNumber + "\n" + data.Email);
+                        Console.WriteLine(data.FName + "\n" + data.LName + "\n" + data.Address + "\n" + data.Zip + "\n" + data.PhoneNumber + "\n" + data.Email);
                     }
                     break;
             }
@@ -254,6 +254,26 @@ public class AddressBookMain
         else
         {
             Console.WriteLine("Address Book is empty! ");
+        }
+    }
+
+    //UC9
+    public void ViewPersonByCityOrState()
+    {
+        if (AddressBook.Count > 0)
+        {
+            Console.WriteLine("Enter state to search");
+            string stateName = Console.ReadLine();
+            Console.WriteLine("Enter city to search");
+            string cityName = Console.ReadLine();
+            foreach (var data in AddressBook.FindAll(x => x.State == stateName && x.City == cityName))
+            {
+                Console.WriteLine(data.FName + "\n" + data.LName + "\n" + data.Address + "\n" + data.Zip + "\n" + data.PhoneNumber + "\n" + data.Email);
+            }
+        }
+        else
+        {
+            Console.WriteLine("Address Book is empty.");
         }
     }
 }

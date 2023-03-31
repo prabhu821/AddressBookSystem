@@ -14,7 +14,8 @@ public class Program
         {
             Console.WriteLine("\nEnter your choice \n1.Add Contacts \n2.View Contacts \n3.Edit Contact \n4.Delete Contact " +
                 "\n5.Add Multiple Person \n6.Add Multiple AddressBook using Dictionary \n7.Display List of Dictionary \n8.Check for Duplicate Contacts " +
-                "\n9.Search Person by City or State \n10.View Person by City or State \n11.Count contact \n12.Exit");
+                "\n9.Search Person by City or State \n10.View Person by City or State \n11.Count contact \n12.Sort Contact by Name " +
+                "\n13.Exit");
             Console.WriteLine("Enter option to execute");
             int option = Convert.ToInt32(Console.ReadLine());
             switch (option)
@@ -53,6 +54,9 @@ public class Program
                     break;
                 case 11:
                     addressBookMain.CountPerson();
+                    break;
+                case 12:
+                    addressBookMain.SortContactByName();
                     break;
                 default:
                     flag = false;

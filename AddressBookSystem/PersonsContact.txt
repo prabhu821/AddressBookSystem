@@ -1,0 +1,46 @@
+﻿FName   :-   Prabhu
+LName   :-   Goyal
+Address :-   MDA
+City    :-   Moradabad
+State   :-   Uttar Pradesh
+Zip     :-   244001
+PhoneNumber    :-   987654321
+Email   :-   prabhu@gmail.com
+
+FName    :-   Amit
+LName    :-   Singh
+Address  :-   Malviya Nagar 
+City     :-   Gorakhpur
+State    :-   Uttar Pradesh
+Zip      :-   273010
+PhoneNumber    :-   8505982624
+Email    :-   amit193@gmail.com
+
+FName    :-   Neetu
+LName    :-   Sharma
+Address  :-   Panchvati colony
+City     :-   Lucknow
+State    :-   Uttar Pradesh
+Zip      :-   112536
+PhoneNumber    :-   9905982520
+Email    :-   neetu773@gmail.com
+
+FName   :-   Hemant
+LName   :-   Rao
+Address   :-   Station Road
+City   :-   Khurjar
+State   :-   Uttar Pradesh
+Zip   :-   203130
+PhoneNumber   :-   8905982520
+Email   :-   piy129@gmail.com
+
+
+FName   :-   Hemant
+LName   :-   Rao
+Address   :-   Station Road
+City   :-   Khurjar
+State   :-   Uttar Pradesh
+Zip   :-   203130
+PhoneNumber   :-   8905982520
+Email   :-   piy129@gmail.com
+

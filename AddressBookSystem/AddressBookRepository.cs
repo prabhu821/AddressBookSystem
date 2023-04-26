@@ -115,5 +115,46 @@ namespace AddressBookSystem
                 throw new Exception(ex.Message);
             }
         }
+        public int GetPersonByCity(Contact model)
+        {
+            try
+            {
+                using (this.sqlconnection)
+                {
+                    this.sqlconnection.Open();
+                    List<Contact> PersonList = new List<Contact>();
+                    SqlCommand command = new SqlCommand("spGetPersonCity", this.sqlconnection);
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@City", model.City);
+                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+                    DataTable table = new DataTable();
+                    adapter.Fill(table);
+                    this.sqlconnection.Close();
+                    int count = 0;
+                    foreach (DataRow dr in table.Rows)
+                    {
+                        PersonList.Add(new Contact
+                        {
+                            Id = Convert.ToInt32(dr["ID"]),
+                            FName = Convert.ToString(dr["FirstName"]),
+                            LName = Convert.ToString(dr["LastName"]),
+                            Address = Convert.ToString(dr["Address"]),
+                            PhoneNumber = Convert.ToString(dr["PhoneNumber"]),
+                            City = Convert.ToString(dr["City"]),
+                            State = Convert.ToString(dr["State"]),
+                            Zip = Convert.ToString(dr["ZipCode"]),
+                            Email = Convert.ToString(dr["Email"]),
+                            DateAdded = Convert.ToString(dr["DateAdded"])
+                        });
+                        count++;
+                    }
+                    return count;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

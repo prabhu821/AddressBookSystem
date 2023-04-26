@@ -64,3 +64,15 @@ select * from BookAddress ba inner join Book b on ba.ID=b.ID where state = 'UP' 
 select Count(Type) as NoOfContacts from BookAddress ba inner join Book b on ba.ID=b.ID where type = 'Profession'
 select Count(Type) as NoOfContacts from BookAddress ba inner join Book b on ba.ID=b.ID where type = 'Family'
 select Count(Type) as NoOfContacts from BookAddress ba inner join Book b on ba.ID=b.ID where type = 'Friend'
+
+
+alter table BookAddress add AddedDate date
+update BookAddress set DateAdded = '2023-01-17' where FirstName='Prabhu'
+update BookAddress set DateAdded = '2022-12-18' where FirstName='Samridhi'
+update BookAddress set DateAdded = '2023-01-19' where FirstName='Hemant'
+update BookAddress set DateAdded = '2022-11-24' where FirstName='Semma'
+update BookAddress set DateAdded = '2022-01-29' where FirstName='Mansi'
+update BookAddress set DateAdded = '2023-01-20' where FirstName='Vinesh'
+update BookAddress set DateAdded = '2023-01-05' where FirstName='Nitin'
+
+select * from BookAddress
